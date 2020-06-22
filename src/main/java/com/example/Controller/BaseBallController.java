@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.Domain.BaseBallTeam;
 import com.example.Service.BaseBallTeamService;
 
+/**
+ * 野球チーム情報を操作するコントローラ．
+ * 
+ * @author yuiko.mitsui
+ *
+ */
 @Controller
 @RequestMapping("")
 public class BaseBallController {
