@@ -8,9 +8,7 @@
 </head>
 <body>
 
-	<h1>野球チーム一覧</h1>
-	<div th:each="baseBallTeam :${baseBallTeams}">
-		<a th:href="@{/team-info?id=}+${baseBallTeam.id}" th:text="${baseBallTeam.teamName}" >team_name</a>
-	</div>
+
+
 </body>
 </html>

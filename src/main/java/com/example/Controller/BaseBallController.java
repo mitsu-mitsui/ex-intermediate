@@ -15,16 +15,25 @@ import com.example.Service.BaseBallTeamService;
 public class BaseBallController {
 	@Autowired
 	private BaseBallTeamService baseBallTeamService;
-	
-	
+
 	@RequestMapping("/list")
 	public String inex(Model model) {
-		
+
 		List<BaseBallTeam> baseBallTeams = baseBallTeamService.getAllBaseBallTeam();
-		
+
 		model.addAttribute("baseBallTeams", baseBallTeams);
-		
+
 		return "baseball-team-list";
 	}
-	
+
+	@RequestMapping("/team-info")
+	public String teamInfo(int id, Model model) {
+
+		BaseBallTeam baseBallTeam = baseBallTeamService.getBaseBallTeam(id);
+
+		model.addAttribute("baseBallTeam", baseBallTeam);
+
+		return "team-info";
+	}
+
 }
