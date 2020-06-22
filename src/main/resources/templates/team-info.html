@@ -7,8 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h2>球団名</h2>
+	<span th:text="${baseBallTeam.teamName}"></span>
 
+	<h2>本拠地</h2>
+	<span th:text="${baseBallTeam.headquarters}"></span>
 
+	<h2>発足</h2>
+	<span th:text="${baseBallTeam.inauguration}"></span>
+
+	<h2>歴史</h2>
+	<pre th:text="${baseBallTeam.history}"></pre>
+	
+	<form th:action="@{/list}"  th:method="post">
+		<button type="submit" >戻る</button>
+	</form>
 
 </body>
 </html>

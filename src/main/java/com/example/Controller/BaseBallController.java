@@ -30,7 +30,7 @@ public class BaseBallController {
 	public String teamInfo(int id, Model model) {
 
 		BaseBallTeam baseBallTeam = baseBallTeamService.getBaseBallTeam(id);
-
+		
 		model.addAttribute("baseBallTeam", baseBallTeam);
 
 		return "team-info";
