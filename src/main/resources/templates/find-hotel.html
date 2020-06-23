@@ -9,6 +9,10 @@
 <body>
 
 	<h1>ホテル検索</h1>
-
+	<form th:action="@{/hotel/find}" th:method="post">
+		<input name="price" type="text">円以下<br>
+		<button type="submit">検索</button>
+	</form>
+	
 </body>
 </html>

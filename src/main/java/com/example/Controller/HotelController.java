@@ -11,4 +11,14 @@ public class HotelController {
 	public String index() {
 		return "find-hotel";
 	}
+
+	@RequestMapping("/find")
+	public String find() {
+		
+		
+		
+		return "redirect:/hotel";
+	}
+
+	
 }
