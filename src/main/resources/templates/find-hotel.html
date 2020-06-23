@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="XXXXXXXX.css">
+<link rel="stylesheet" th:href="@{/hotelcss.css}">
 <title>Insert title here</title>
 </head>
 <body>
@@ -13,6 +13,35 @@
 		<input name="price" type="text">円以下<br>
 		<button type="submit">検索</button>
 	</form>
-	
+
+	<br>
+
+	<div th:text="${errorMessage}">err</div>
+
+	<div th:if="${hotelList}">
+		<div th:if="${hotelList.size()} == 0" th:text="該当するホテルがありません">err</div>
+	</div>
+
+	<div th:each="hotel : ${hotelList}">
+		<table class="hoteltable" border="1">
+			<tr id="col1">
+				<td>ホテル名</td>
+				<td th:text="${hotel.hotelName}">hotel_name</td>
+			</tr>
+
+			<tr id="col2">
+				<td>最寄り駅</td>
+				<td th:text="${hotel.nearestStation}">station</td>
+			</tr>
+
+			<tr id="col1">
+				<td>価格</td>
+				<td th:text="${hotel.price}">price</td>
+			</tr>
+
+		</table>
+		<br>
+	</div>
+
 </body>
 </html>

@@ -22,24 +22,18 @@ public class HotelService {
 	private HotelRepository hotelRepository;
 
 	/**
-	 * 全ホテル情報を取得．
-	 * 
-	 * @return id昇順の全ホテル情報．
-	 */
-	public List<Hotel> findHotels() {
-
-		return hotelRepository.findAll();
-	}
-
-	/**
 	 * 希望宿泊価格以下のホテルを複数検索．
 	 * 
 	 * @param price 希望宿泊価格．
 	 * @return 希望宿泊価格以下の全ホテル情報
 	 */
-	public List<Hotel> findHotels(Integer price) {
+	public List<Hotel> searchByLessThanPrice(String price) {
 
-		return hotelRepository.findHotels(price);
+		if ("".equals(price)) {// price：空
+			return hotelRepository.findAll();
+		} else {
+			return hotelRepository.findHotels(Integer.parseInt(price));
+		}
 	}
 
 }

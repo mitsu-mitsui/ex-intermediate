@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>衣服検索</h1>
+	<form th:action="@{/cloth/find}" th:method="post">
+		<table>
+			<tr>
+				<td><input name="gender" value="0" type="radio" checked="checked">Man<br>
+					<input name="gender" value="1" type="radio">Woman<br>
+				</td>
+
+				<td><select name="color">
+						<option value="赤">赤</option>
+						<option value="青">青</option>
+						<option value="白">白</option>
+						<option value="黄">黄</option>
+				</select></td>
+			</tr>
+		</table>
+
+		<button type="submit">検索</button>
+	</form>
+
+	<br>
+
+	<div th:text="${errorMessage}">err</div>
+
+	<div th:if="${clothList}">
+		<div th:if="${clothList.size()} == 0" th:text="該当する衣服がありません">err</div>
+	</div>
+
+	<div th:each="cloth: ${clothList}">
+		<table border="1">
+			<tr id="col1">
+				<td>ジャンル</td>
+				<td th:text="${cloth.genre}">hotel_name</td>
+			</tr>
+
+			<tr id="col2">
+				<td>サイズ</td>
+				<td th:text="${cloth.size}">station</td>
+			</tr>
+
+			<tr id="col1">
+				<td>価格</td>
+				<td th:text="${cloth.price}">price</td>
+			</tr>
+
+		</table>
+		<br>
+	</div>
+
+</body>
+</html>
