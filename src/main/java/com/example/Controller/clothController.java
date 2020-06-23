@@ -35,7 +35,6 @@ public class clothController {
 
 	@RequestMapping("/find")
 	public String find(Integer gender, String color, Model model) {
-
 		List<cloth> clothList = clothservice.searchByColorAndGender(color, gender);
 		model.addAttribute("clothList", clothList);
 
